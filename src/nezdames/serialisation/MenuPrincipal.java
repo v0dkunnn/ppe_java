@@ -327,7 +327,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Problème d'entrée et/ou sortie");
             }
     }//GEN-LAST:event_formWindowClosing
-
+/**
+ * 
+ * @return 
+ */
     public static Connection connect(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
