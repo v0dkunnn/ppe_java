@@ -182,10 +182,19 @@
         <Menu class="javax.swing.JMenu" name="jMenuClient">
           <Properties>
             <Property name="text" type="java.lang.String" value="Structure"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuClientActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="creationclient">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cr&#xe9;er une Structure"/>
               </Properties>
               <Events>
@@ -194,6 +203,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="lmsclient">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="lister,modifier,supprimer les structures"/>
               </Properties>
               <Events>
@@ -202,6 +214,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ajouter une Personne"/>
               </Properties>
               <Events>

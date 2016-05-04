@@ -221,7 +221,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar.add(menuItemLieux);
 
         jMenuClient.setText("Structure");
+        jMenuClient.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jMenuClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuClientActionPerformed(evt);
+            }
+        });
 
+        creationclient.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         creationclient.setText("Créer une Structure");
         creationclient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,6 +237,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenuClient.add(creationclient);
 
+        lmsclient.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         lmsclient.setText("lister,modifier,supprimer les structures");
         lmsclient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +246,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenuClient.add(lmsclient);
 
+        jMenuItem2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jMenuItem2.setText("Ajouter une Personne");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,6 +340,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
  * 
  * @return 
  */
+    
+    //Connection a la base de données du service Web.
     public static Connection connect(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -348,6 +359,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             return null;
         }
     }
+    /**
+     * 
+     * @param evt 
+     */
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
@@ -389,6 +404,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * 
+     * @param evt
+     */
     private void jMenuItemModifierMotPasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemModifierMotPasseActionPerformed
         new IntermittentModifierMotPasse().setVisible(true);
     }//GEN-LAST:event_jMenuItemModifierMotPasseActionPerformed
@@ -447,6 +466,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new AjouterPersonne().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuClientActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -484,7 +507,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem creationclient;
     private javax.swing.JLabel jLabel1;

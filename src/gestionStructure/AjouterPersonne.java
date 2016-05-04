@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author gaellecastel
  */
+
 public class AjouterPersonne extends javax.swing.JFrame {
 
     public AjouterPersonne() {
@@ -46,7 +47,7 @@ public class AjouterPersonne extends javax.swing.JFrame {
         NumLicence = new javax.swing.JTextField();
         tél = new javax.swing.JTextField();
         lblCodePostal1 = new javax.swing.JLabel();
-        Prenom = new javax.swing.JTextField();
+        txtPrenom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -98,18 +99,27 @@ public class AjouterPersonne extends javax.swing.JFrame {
 
         lblImageManu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/portraitManu.png"))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("Numero de Licence ");
 
+        jLabelNom.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabelNom.setForeground(new java.awt.Color(255, 153, 0));
         jLabelNom.setText("Nom");
 
+        jLabelTél.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabelTél.setForeground(new java.awt.Color(255, 153, 0));
         jLabelTél.setText("Télephone");
 
         lblCodePostal1.setFont(new java.awt.Font("Hannotate SC", 0, 13)); // NOI18N
         lblCodePostal1.setForeground(new java.awt.Color(255, 153, 51));
         lblCodePostal1.setText("Prenom");
+
+        txtPrenom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrenomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,7 +133,7 @@ public class AjouterPersonne extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(NumLicence, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(22, 22, 22))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -175,18 +185,15 @@ public class AjouterPersonne extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(lblTitre4))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(lblImageManu)))
-                        .addGap(20, 20, 20))
+                        .addGap(124, 124, 124)
+                        .addComponent(lblTitre4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblImageManu))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(lblTitre1)
-                        .addGap(37, 37, 37)))
+                        .addComponent(lblTitre1)))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(NumLicence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,7 +208,7 @@ public class AjouterPersonne extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCodePostal1)
-                            .addComponent(Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCodePostal, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,6 +257,11 @@ public class AjouterPersonne extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAnnulerActionPerformed
 
+    /**
+    * 
+    * @param evt 
+    */
+    
     private void btnEnvoyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnvoyerActionPerformed
         // test qui vérifie que les champs sont remplis
 
@@ -266,15 +278,16 @@ public class AjouterPersonne extends javax.swing.JFrame {
                     if (tél.getText().compareTo("") == 0) {
                         JOptionPane.showMessageDialog(null, "Il faut saisir le numéro de téléphone de la personne");
                     } else {
-                        //recherche du dernier id de lieu donné
+                        
+                        //recherche du dernier id de la personne donné
                        int idMax = 0;
                         for (PersonneStructure unePersonne : NezDamesSerialisation.lesPersonnes) {
                             if (unePersonne.getIdPersonne()> idMax) {
                                 idMax = unePersonne.getIdPersonne();
                             }
                         }
-                        // ajout d'un lieu à la collection lesLieux
-                        NezDamesSerialisation.lesPersonnes.add(new PersonneStructure(idMax + 1,Integer.parseInt(NumLicence.getText()), txtNom.getText(), tél.getText(),qualite.getText()));
+                        // ajout d'une personne à la collection lesPersonnes
+                        NezDamesSerialisation.lesPersonnes.add(new PersonneStructure(idMax + 1,Integer.parseInt(NumLicence.getText()), txtNom.getText(), txtPrenom.getText(), tél.getText(),qualite.getText()));
                         JOptionPane.showMessageDialog(null, "Pesonne ajouté.");
 
                         this.dispose();
@@ -283,6 +296,10 @@ public class AjouterPersonne extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEnvoyerActionPerformed
+
+    private void txtPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrenomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrenomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,261 +327,7 @@ public class AjouterPersonne extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AjouterPersonne.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -572,11 +335,12 @@ public class AjouterPersonne extends javax.swing.JFrame {
                 new AjouterPersonne().setVisible(true);
             }
         });
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NumLicence;
-    private javax.swing.JTextField Prenom;
     private javax.swing.JButton btnAnnuler;
     private javax.swing.JButton btnEnvoyer;
     private javax.swing.JLabel jLabel1;
@@ -593,6 +357,7 @@ public class AjouterPersonne extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitre4;
     private javax.swing.JTextField qualite;
     private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtPrenom;
     private javax.swing.JTextField tél;
     // End of variables declaration//GEN-END:variables
 }

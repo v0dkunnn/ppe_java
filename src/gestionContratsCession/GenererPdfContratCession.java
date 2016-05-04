@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gestionContratsCession;
 
 
@@ -31,6 +27,7 @@ import nezdames.serialisation.NezDamesSerialisation;
 /**
  * Création d'un contrat de cession en PDF
  */
+
 public class GenererPdfContratCession {
  
   private String FILE;
@@ -42,6 +39,11 @@ public class GenererPdfContratCession {
   public static final String entete = "src/images/entete.png";
   
   private static ContratCession leContrat;
+  
+  /**
+   * 
+   * @param indiceDuContratCessionAEditer 
+   */
   
   public GenererPdfContratCession(int indiceDuContratCessionAEditer) {
     try {
@@ -102,6 +104,7 @@ public class GenererPdfContratCession {
     subCatPart.add(new Paragraph("dont le producteur déclare connaître et accepter les caractéristiques techniques."));
     subCatPart.add(new Paragraph(" "));
     subCatPart.add(new Paragraph("CECI ETANT EXPOSE, IL EST CONVENU ET ARRETE CE QUI SUIT:", subFont));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
     
@@ -114,7 +117,7 @@ public class GenererPdfContratCession {
         subCatPart.add(new Paragraph("   Lieu de la représentation : "+uneRepresentation.getLeLieu().getNom()+" "+uneRepresentation.getLeLieu().getAdresseRue()+" "+uneRepresentation.getLeLieu().getAdresseVille(),smallBold)); 
         subCatPart.add(new Paragraph("   Durée du jeu  : "+leContrat.getLeSpectacleDuContratDeCession().getDuree()+" minutes "));
     }
-
+    
     subCatPart.add(new Paragraph("Cette collaboration ne constitue aucune forme d’association ou de société entre les parties."));
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
@@ -155,6 +158,7 @@ public class GenererPdfContratCession {
     subCatPart.add(new Paragraph("Restauration : RAS"));
     subCatPart.add(new Paragraph("Hébergement : RAS"));
     subCatPart.add(new Paragraph("4.2. TRANSPORT : RAS"));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
     
@@ -163,6 +167,7 @@ public class GenererPdfContratCession {
     subCatPart.add(new Paragraph("PRIX DU SPECTACLE – PAIEMENT"));
     subCatPart.add(new Paragraph("5.1. PRIX : A titre exceptionnel cette représentation est réalisée à titre gratuit."));
     subCatPart.add(new Paragraph("L’ORGANISATEUR s’acquittera néanmoins en sus de toute taxe qui viendrait à être créée par la puissance publique"));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
     
@@ -172,12 +177,14 @@ public class GenererPdfContratCession {
     subCatPart.add(new Paragraph("L’ORGANISATEUR déclare avoir souscrit les assurances nécessaires à la couverture des risques liés à l’exploitation du spectacle dans son lieu, notamment en matière de responsabilité civile ainsi que les assurances nécessaires à la couverture des risques liés aux présentations de l’intervention spectaculaire sur le parcours en question."));
     subCatPart.add(new Paragraph("Il mettra à la disposition du producteur des loges fermant à clé et sera responsable de la protection et du gardiennage de tout objet appartenant au producteur."));
     subCatPart.add(new Paragraph("Dans le cas d’un spectacle en plein air, le producteur et l’organisateur s’engagent à souscrire une assurance couvrant les risques d’intempéries pour les frais incombant à chacun, étant entendu que cette assurance nécessite une couverture de scène."));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));    
     
     subPara = new Paragraph("Article 7. RESPONSABILITE", subFont);
     subCatPart = catPart.addSection(subPara,0); //on affiche le sous titre sans numérotation
     subCatPart.add(new Paragraph("Chaque partie garantie l’autre contre tous recours des personnels, fournisseurs et prestataires dont elle a personnellement la charge au titre des obligations respectives définies au présent contrat."));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
     
@@ -186,6 +193,7 @@ public class GenererPdfContratCession {
     subCatPart.add(new Paragraph("8.1. LE PRODUCTEUR aura la possibilité d’organiser une séance photo ou un tournage vidéo de son spectacle sur le parcours de L’ORGANISATEUR."));
     subCatPart.add(new Paragraph("8.2. En dehors des émissions d’informations radiophoniques ou télévisées d’une durée de trois minutes au plus, tout enregistrement ou diffusion, même partiel, des représentations, objet du présent contrat, devra faire l’objet d’un accord écrit de la part du producteur."));
     subCatPart.add(new Paragraph("8.3. L’ORGANISATEUR s’engage à faire figurer le nom « Cie Nezdames et Nezsieurs» dans ses communiqués de presse et à lui faire parvenir tout article de presse mentionnant la ou les prestation(s) en question."));
+    
     //on saute une ligne
     subCatPart.add(new Paragraph(" "));
     

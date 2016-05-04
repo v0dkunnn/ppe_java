@@ -235,6 +235,7 @@ public class LieuAjouter extends javax.swing.JFrame {
                     if (txtVille.getText().compareTo("") == 0) {
                         JOptionPane.showMessageDialog(null, "Il faut saisir la ville du lieu");
                     } else {
+                        
                         //recherche du dernier id de lieu donné
                         int idMax = 0;
                         for (Lieu leLieu : NezDamesSerialisation.lesLieux) {

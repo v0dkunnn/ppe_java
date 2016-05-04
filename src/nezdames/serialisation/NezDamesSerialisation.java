@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package nezdames.serialisation;
 
 import classesMetier.ContratCession;
@@ -18,9 +14,11 @@ import classesMetier.User;
  *
  * @author gaellecastel
  */
+
 public class NezDamesSerialisation {
 
      // déclaration des collections
+    
     public static ArrayList<Intermittent> lesIntermittents = new ArrayList();
     public static ArrayList<User> lesUsers = new ArrayList();
     public static ArrayList<Spectacle> lesSpectacles = new ArrayList();
@@ -28,18 +26,21 @@ public class NezDamesSerialisation {
     public static ArrayList<Lieu> lesLieux = new ArrayList();
     public static ArrayList<PersonneStructure> lesPersonnes = new ArrayList();
     public static ArrayList<Structure> lesStructures = new ArrayList();
-    
+ 
     public static int index =-1 ;
-    
 
     /**
      * @param args the command line arguments
      */
+    
+    /**
+     * @param args 
+     */
+    
     public static void main(String[] args){
         
         MenuPrincipal a = new MenuPrincipal();
         a.setVisible(true);
-        
     }
 }
     
